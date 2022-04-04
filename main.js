@@ -14,7 +14,7 @@ PONTOS DA AV1:
 
 function start() {
   // EXEMPLO DE MANIPULACAO E RECUPERACAO DE DADOS DA DOM
-  // let conteudo = document.getElementById("botao-iniciar");
+  // let conteudo = document.getElementById("start-button");
   // console.log(conteudo.innerHTML)
   // conteudo.innerHTML = "Valendo!!!"
 }

@@ -13,7 +13,7 @@ body {
   height: 100vh;
 }
 
-#painel-esquerdo {
+#left-panel {
   display: flex;
   flex: 1;
   border-right: 1px dashed #ccc;
@@ -22,7 +22,7 @@ body {
   padding: 10px;
 }
 
-.input-jogador {
+.player-input {
   height: 40px;
   width: 100%;
   margin-bottom: 10px;
@@ -31,11 +31,11 @@ body {
   text-align: center;
 }
 
-.input-jogador::placeholder {
+.player-input::placeholder {
   color: #ccc;
 }
 
-#painel-direito {
+#right-panel {
   display: flex;
   flex: 4;
   justify-content: center;
@@ -43,25 +43,25 @@ body {
   flex-direction: column;
 }
 
-#tabuleiro {
+#game-board {
   display: flex;
   flex-direction: column;
   width: 50vw;
   height: 50vh;
 }
 
-.tabuleiro-linha {
+.game-board-row {
   display: flex;
   flex-direction: row;
   flex: 1;
   border-bottom: 1px solid #ccc;
 }
 
-.tabuleiro-linha:last-child {
+.game-board-row:last-child {
   border-bottom: 0px;
 }
 
-.tabuleiro-jogada {
+.game-board-move {
   display: flex;
   flex: 1;
   align-items: center;
@@ -71,20 +71,20 @@ body {
   border-right: 1px solid #ccc;
 }
 
-.tabuleiro-jogada:last-child {
+.game-board-move:last-child {
   border-right: 0px;
 }
 
-.tabuleiro-jogada:hover {
+.game-board-move:hover {
   color: #f903a9;
   background-color: #3f3f3f;
 }
 
-#container-acao {
+#container-action {
   margin-top: 100px;
 }
 
-#botao-iniciar {
+#start-button {
   background-color: #861480;
   width: 40vw;
   height: 60px;
@@ -96,6 +96,6 @@ body {
   cursor: pointer;
 }
 
-#botao-iniciar:hover {
+#start-button:hover {
   opacity: 0.8;
 }
