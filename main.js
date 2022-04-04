@@ -12,15 +12,9 @@ PONTOS DA AV1:
     DEVERÁ SER ATUALIZADO O HISTÓRICO DAS PARTIDAS 
 */
 
-function comecar(){
-  
-    // EXEMPLO DE MANIPULACAO E RECUPERACAO DE DADOS DA DOM
-    // let conteudo = document.getElementById("botao-iniciar");
-    // console.log(conteudo.innerHTML)
-    // conteudo.innerHTML = "Valendo!!!"
-
+function comecar() {
+  // EXEMPLO DE MANIPULACAO E RECUPERACAO DE DADOS DA DOM
+  // let conteudo = document.getElementById("botao-iniciar");
+  // console.log(conteudo.innerHTML)
+  // conteudo.innerHTML = "Valendo!!!"
 }
-
-
-
-
