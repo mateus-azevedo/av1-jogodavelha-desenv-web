@@ -7,14 +7,16 @@
     <div id="container">
       <div id="left-panel">
         <input
+          id="player1"
+          class="player-input"
           type="text"
           placeholder="Digite o jogador 1 (O)"
-          class="player-input"
         />
         <input
+          id="player2"
+          class="player-input"
           type="text"
           placeholder="Digite o jogador 2 (x)"
-          class="player-input"
         />
       </div>
       <div id="right-panel">
@@ -37,11 +39,12 @@
         </div>
 
         <div id="container-action">
-          <div id="start-button" onclick="start()">Começar o Jogo!</div>
+          <button id="start-button" onclick="start()">Começar o Jogo!</button>
         </div>
       </div>
     </div>
 
+    <script src="onLoad.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
