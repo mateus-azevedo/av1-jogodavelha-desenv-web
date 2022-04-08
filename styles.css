@@ -82,6 +82,10 @@ body {
 
 #container-action {
   margin-top: 100px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #start-button {
@@ -112,14 +116,8 @@ body {
   cursor: not-allowed;
 }
 
-#tooltip {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* background-color: red; */
-}
-
 #tooltiptext {
+  visibility: hidden;
   margin-top: 30px;
   font-size: 20px;
 }
