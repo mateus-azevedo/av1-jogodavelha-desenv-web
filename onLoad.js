@@ -16,3 +16,25 @@ function checkLabel() {
   console.log("first console", player1.value);
   console.log("seconde console", player2.value);
 }
+
+function onMouseOverButton() {
+  const warningMessage = document.getElementById("tooltiptext");
+  const startButton = document.getElementById("start-button");
+
+  if (startButton.disabled) {
+    warningMessage.style.visibility = "visible";
+  }
+
+  console.log("passou");
+}
+
+function onMouseLeaveButton() {
+  const warningMessage = document.getElementById("tooltiptext");
+  const startButton = document.getElementById("start-button");
+
+  if (startButton.disabled) {
+    warningMessage.style.visibility = "hidden";
+  }
+
+  console.log("saiu");
+}

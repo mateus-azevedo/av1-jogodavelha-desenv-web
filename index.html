@@ -40,12 +40,16 @@
           </div>
         </div>
 
-        <div id="container-action">
-            <button id="start-button" onclick="start()">Começar o Jogo!</button>
-            <span id="tooltiptext"
-              >Por favor, antes de tentar iniciar o jogo, insira os nomes dos
-              jogadores.</span
-            >
+        <div
+          id="container-action"
+          onmouseover="onMouseOverButton()"
+          onmouseleave="onMouseLeaveButton()"
+        >
+          <button id="start-button" onclick="start()">Começar o Jogo!</button>
+          <span id="tooltiptext"
+            >Por favor, antes de tentar iniciar o jogo, insira os nomes dos
+            jogadores.</span
+          >
         </div>
       </div>
     </div>
