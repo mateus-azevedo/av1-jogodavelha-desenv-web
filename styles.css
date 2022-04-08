@@ -82,9 +82,15 @@ body {
 
 #container-action {
   margin-top: 100px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #start-button {
+  color: #fff;
+  font-size: 24px;
   background-color: #861480;
   width: 40vw;
   height: 60px;
@@ -96,6 +102,22 @@ body {
   cursor: pointer;
 }
 
-#start-button:hover {
+#start-button:hover:active {
   opacity: 0.8;
+}
+
+#start-button:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+#start-button:hover:disabled {
+  cursor: not-allowed;
+}
+
+#tooltiptext {
+  visibility: hidden;
+  margin-top: 30px;
+  font-size: 20px;
 }
