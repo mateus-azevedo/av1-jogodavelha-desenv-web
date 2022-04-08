@@ -1,21 +1,18 @@
-window.addEventListener("load", checkForm);
+window.addEventListener("load", checkLabel);
 
-function checkForm() {
-  const playerInput1 = document.getElementById("player1");
-  const playerInput2 = document.getElementById("player2");
+function checkLabel() {
   const startButton = document.getElementById("start-button");
+  const [player1, player2] = [
+    document.getElementById("player1"),
+    document.getElementById("player2"),
+  ];
 
-  if (playerInput1.value === "" || playerInput2.value === "") {
+  if (player1.value !== "" && player2.value !== "") {
+    startButton.disabled = false;
+  } else {
     startButton.disabled = true;
-    hideAllGameMove();
   }
-}
 
-function hideAllGameMove() {
-  const gameBoardMove = document.getElementsByClassName("game-board-move");
-  // console.log(gameBoardMove);
-
-  for (let item of gameBoardMove) {
-    item.innerText = "";
-  }
+  console.log("first console", player1.value);
+  console.log("seconde console", player2.value);
 }
