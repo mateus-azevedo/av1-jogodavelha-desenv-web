@@ -1,4 +1,11 @@
 window.addEventListener("load", checkLabel);
+var nomePlayer1 = "";
+var nomePlayer2 = "";
+
+function disableInputName(input1, input2) {
+  input1.disabled = true;
+  input2.disabled = true;
+}
 
 function checkLabel() {
   const startButton = document.getElementById("start-button");
@@ -9,12 +16,13 @@ function checkLabel() {
 
   if (player1.value !== "" && player2.value !== "") {
     startButton.disabled = false;
+    nomePlayer1 = player1.value;
+    nomePlayer2 = player2.value;
+
+    disableInputName(player1, player2);
   } else {
     startButton.disabled = true;
   }
-
-  console.log("first console", player1.value);
-  console.log("seconde console", player2.value);
 }
 
 function onMouseOverButton() {
@@ -24,8 +32,6 @@ function onMouseOverButton() {
   if (startButton.disabled) {
     warningMessage.style.visibility = "visible";
   }
-
-  console.log("passou");
 }
 
 function onMouseLeaveButton() {
@@ -35,6 +41,4 @@ function onMouseLeaveButton() {
   if (startButton.disabled) {
     warningMessage.style.visibility = "hidden";
   }
-
-  console.log("saiu");
 }
