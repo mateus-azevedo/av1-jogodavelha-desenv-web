@@ -23,6 +23,8 @@ function disableInputName(input1, input2) {
 
 function hideAllGameMove() {
   const gameBoardMove = document.getElementsByClassName("game-board-move");
+  const startButton = document.getElementById("start-button");
+  // startButton.style.display = "none";
 
   for (let item of gameBoardMove) {
     item.innerText = "";
@@ -36,4 +38,36 @@ function start() {
   // let conteudo = document.getElementById("start-button");
   // console.log(conteudo.innerHTML)
   // conteudo.innerHTML = "Valendo!!!"
+}
+
+const selectElements = document.querySelectorAll(["select-space"]);
+const board = document.querySelectorAll(["board-game"]);
+let isPlayer1Turn;
+
+for (const item of selectElements) {
+  item.addEventListener("click", handleClick, { once: true });
+}
+
+function placeMark(element, classToAdd) {
+  element.classList.add(classToAdd);
+}
+
+function swapTurn() {
+  isPlayer1Turn = !isPlayer1Turn;
+
+  board.classList.remove("player1-turn");
+  board.classList.remove("player2-turn");
+
+  if (isPlayer1Turn) {
+    board.classList.add("player1-turn");
+  } else {
+    board.classList.add("player2-turn");
+  }
+}
+
+function handleClick(e) {
+  const element = e.target;
+  const classToAdd = isPlayer1Turn ? "player1-turn" : "player2-turn";
+
+  placeMark(element, classToAdd);
 }
