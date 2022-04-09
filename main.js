@@ -21,8 +21,17 @@ function disableInputName(input1, input2) {
   input2.disabled = true;
 }
 
+function hideAllGameMove() {
+  const gameBoardMove = document.getElementsByClassName("game-board-move");
+
+  for (let item of gameBoardMove) {
+    item.innerText = "";
+  }
+}
+
 function start() {
   disableInputName(player1, player2);
+  hideAllGameMove();
   // EXEMPLO DE MANIPULACAO E RECUPERACAO DE DADOS DA DOM
   // let conteudo = document.getElementById("start-button");
   // console.log(conteudo.innerHTML)
