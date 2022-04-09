@@ -11,8 +11,18 @@ PONTOS DA AV1:
     AO FINAL DO MELHOR DE TRES O VENCEDOR DEVERÁ TER O NOME APRESENTADO NO LUGAR DO JOGO DA VELHA
     DEVERÁ SER ATUALIZADO O HISTÓRICO DAS PARTIDAS 
 */
+const [player1, player2] = [
+  document.getElementById("player1"),
+  document.getElementById("player2"),
+];
+
+function disableInputName(input1, input2) {
+  input1.disabled = true;
+  input2.disabled = true;
+}
 
 function start() {
+  disableInputName(player1, player2);
   // EXEMPLO DE MANIPULACAO E RECUPERACAO DE DADOS DA DOM
   // let conteudo = document.getElementById("start-button");
   // console.log(conteudo.innerHTML)

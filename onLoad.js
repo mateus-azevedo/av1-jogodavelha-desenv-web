@@ -2,11 +2,6 @@ window.addEventListener("load", checkLabel);
 var nomePlayer1 = "";
 var nomePlayer2 = "";
 
-function disableInputName(input1, input2) {
-  input1.disabled = true;
-  input2.disabled = true;
-}
-
 function checkLabel() {
   const startButton = document.getElementById("start-button");
   const [player1, player2] = [
@@ -18,8 +13,6 @@ function checkLabel() {
     startButton.disabled = false;
     nomePlayer1 = player1.value;
     nomePlayer2 = player2.value;
-
-    disableInputName(player1, player2);
   } else {
     startButton.disabled = true;
   }
