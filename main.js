@@ -86,6 +86,7 @@ function resetGame() {
 
   hideAllGameMove();
   hideWinnerName();
+  removeHistoryWinnerList();
   enableInputName(player1, player2);
 
   startButton.textContent = BUTTON_MESSAGES.START;
@@ -298,9 +299,11 @@ function showWinnerName(playerMark) {
   if (isNotHaveAWinner) {
     if (playerMark === "X") {
       displayNameWinner.textContent = namePlayer1.toString();
+      createHistoryWinnerList(player1.value);
       timesPlayer1Win++;
     } else {
       displayNameWinner.textContent = namePlayer2.toString();
+      createHistoryWinnerList(player2.value);
       timesPlayer2Win++;
     }
 
@@ -417,5 +420,27 @@ function lookForAWinner() {
   ) {
     showWinnerName(space3);
     console.log("Venceu coluna3");
+  }
+}
+
+/**
+ * ADICIONA E REMOVE HISTORICO DE VENCEDOR DAS PARTIDAS
+ *
+ */
+function createHistoryWinnerList(player) {
+  const listHistoryMatch = document.getElementById("history-match");
+  const item = document.createElement("li");
+
+  item.className = "winner-of-match";
+  item.innerHTML = player;
+
+  listHistoryMatch.appendChild(item);
+}
+
+function removeHistoryWinnerList() {
+  const listOfItems = document.querySelectorAll(".winner-of-match");
+
+  for (const item of listOfItems) {
+    item.remove();
   }
 }
