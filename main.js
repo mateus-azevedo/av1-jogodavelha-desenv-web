@@ -40,34 +40,137 @@ function start() {
   // conteudo.innerHTML = "Valendo!!!"
 }
 
-const selectElements = document.querySelectorAll(["select-space"]);
 const board = document.querySelectorAll(["board-game"]);
 let isPlayer1Turn;
 
-for (const item of selectElements) {
-  item.addEventListener("click", handleClick, { once: true });
-}
+/**
+ *  IREI PEGAR TODOS ELEMENTOS POR ID
+ */
 
-function placeMark(element, classToAdd) {
-  element.classList.add(classToAdd);
-}
+document.getElementById("row1-column1").addEventListener("click", r1c1, true);
+document.getElementById("row1-column2").addEventListener("click", r1c2, true);
+document.getElementById("row1-column3").addEventListener("click", r1c3, true);
+document.getElementById("row2-column1").addEventListener("click", r2c1, true);
+document.getElementById("row2-column2").addEventListener("click", r2c2, true);
+document.getElementById("row2-column3").addEventListener("click", r2c3, true);
+document.getElementById("row3-column1").addEventListener("click", r3c1, true);
+document.getElementById("row3-column2").addEventListener("click", r3c2, true);
+document.getElementById("row3-column3").addEventListener("click", r3c3, true);
 
+/**
+ *
+ *
+ */
 function swapTurn() {
   isPlayer1Turn = !isPlayer1Turn;
+  console.log(isPlayer1Turn);
+  return isPlayer1Turn;
+}
 
-  board.classList.remove("player1-turn");
-  board.classList.remove("player2-turn");
+function r1c1() {
+  const item = document.getElementById("row1-column1");
 
-  if (isPlayer1Turn) {
-    board.classList.add("player1-turn");
-  } else {
-    board.classList.add("player2-turn");
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+    } else {
+      item.innerHTML = "O";
+    }
   }
 }
 
-function handleClick(e) {
-  const element = e.target;
-  const classToAdd = isPlayer1Turn ? "player1-turn" : "player2-turn";
+function r1c2() {
+  const item = document.getElementById("row1-column2");
 
-  placeMark(element, classToAdd);
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+    } else {
+      item.innerHTML = "O";
+    }
+  }
+}
+
+function r1c3() {
+  const item = document.getElementById("row1-column3");
+
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+    } else {
+      item.innerHTML = "O";
+    }
+  }
+}
+
+function r2c1() {
+  const item = document.getElementById("row2-column1");
+
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+    } else {
+      item.innerHTML = "O";
+    }
+  }
+}
+
+function r2c2() {
+  const item = document.getElementById("row2-column2");
+
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+    } else {
+      item.innerHTML = "O";
+    }
+  }
+}
+
+function r2c3() {
+  const item = document.getElementById("row2-column3");
+
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+    } else {
+      item.innerHTML = "O";
+    }
+  }
+}
+
+function r3c1() {
+  const item = document.getElementById("row3-column1");
+
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+    } else {
+      item.innerHTML = "O";
+    }
+  }
+}
+
+function r3c2() {
+  const item = document.getElementById("row3-column2");
+
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+    } else {
+      item.innerHTML = "O";
+    }
+  }
+}
+
+function r3c3() {
+  const item = document.getElementById("row3-column3");
+
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+    } else {
+      item.innerHTML = "O";
+    }
+  }
 }
