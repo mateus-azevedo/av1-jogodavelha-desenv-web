@@ -227,14 +227,14 @@ function r3c3() {
 
 function showWinnerName(playerMark) {
   const displayNameWinner = document.getElementById("winner-name");
-  const namePlayer1 = document.createTextNode(`Parabéns, ${player1.value}`);
-  const namePlayer2 = document.createTextNode(`Parabéns, ${player2.value}`);
+  const namePlayer1 = `Parabéns, ${player1.value}`;
+  const namePlayer2 = `Parabéns, ${player2.value}`;
 
   if (isNotHaveAWinner) {
     if (playerMark === "X") {
-      displayNameWinner.appendChild(namePlayer1);
+      displayNameWinner.textContent = namePlayer1.toString();
     } else {
-      displayNameWinner.appendChild(namePlayer2);
+      displayNameWinner.textContent = namePlayer2.toString();
     }
   }
 
