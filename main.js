@@ -81,6 +81,8 @@ function r1c1() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
 }
 
 function r1c2() {
@@ -95,6 +97,8 @@ function r1c2() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
 }
 
 function r1c3() {
@@ -109,6 +113,8 @@ function r1c3() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
 }
 
 function r2c1() {
@@ -123,6 +129,8 @@ function r2c1() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
 }
 
 function r2c2() {
@@ -137,6 +145,8 @@ function r2c2() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
 }
 
 function r2c3() {
@@ -151,6 +161,8 @@ function r2c3() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
 }
 
 function r3c1() {
@@ -165,6 +177,8 @@ function r3c1() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
 }
 
 function r3c2() {
@@ -179,6 +193,8 @@ function r3c2() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
 }
 
 function r3c3() {
@@ -193,4 +209,106 @@ function r3c3() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
+}
+
+/**
+ * VERIFICAÇÃO DO VENCEDOR DA PARTIDA ATUAL
+ *
+ */
+
+function lookForAWinner() {
+  const [
+    space1,
+    space2,
+    space3,
+    space4,
+    space5,
+    space6,
+    space7,
+    space8,
+    space9,
+  ] = [
+    row1Column1.innerHTML.toString(),
+    row1Column2.innerHTML.toString(),
+    row1Column3.innerHTML.toString(),
+    row2Column1.innerHTML.toString(),
+    row2Column2.innerHTML.toString(),
+    row2Column3.innerHTML.toString(),
+    row3Column1.innerHTML.toString(),
+    row3Column2.innerHTML.toString(),
+    row3Column3.innerHTML.toString(),
+  ];
+
+  // console.log(space1);
+  // if (space1 !== "" && space5 !== "" && space9 !== "") {
+  if (
+    space1 === space5 &&
+    space5 === space9 &&
+    space1 !== "" &&
+    space5 !== "" &&
+    space9 !== ""
+  ) {
+    console.log("Venceu na diagonal \\");
+  } else if (
+    space3 === space5 &&
+    space5 === space7 &&
+    space3 !== "" &&
+    space5 !== "" &&
+    space7 !== ""
+  ) {
+    console.log("Venceu na outra diagonal /");
+  } else if (
+    space1 === space2 &&
+    space2 === space3 &&
+    space1 !== "" &&
+    space2 !== "" &&
+    space3 !== ""
+  ) {
+    console.log("Venceu linha1");
+  } else if (
+    space4 === space5 &&
+    space5 === space6 &&
+    space4 !== "" &&
+    space5 !== "" &&
+    space6 !== ""
+  ) {
+    console.log("Venceu linha2");
+  } else if (
+    space7 === space8 &&
+    space8 === space9 &&
+    space7 !== "" &&
+    space8 !== "" &&
+    space9 !== ""
+  ) {
+    console.log("Venceu linha3");
+  } else if (
+    space1 === space4 &&
+    space4 === space7 &&
+    space1 !== "" &&
+    space4 !== "" &&
+    space7 !== ""
+  ) {
+    console.log("Venceu coluna1");
+  } else if (
+    space2 === space5 &&
+    space5 === space8 &&
+    space2 !== "" &&
+    space5 !== "" &&
+    space8 !== ""
+  ) {
+    console.log("Venceu coluna2");
+  } else if (
+    space3 === space6 &&
+    space6 === space9 &&
+    space3 !== "" &&
+    space6 !== "" &&
+    space9 !== ""
+  ) {
+    console.log("Venceu coluna3");
+  }
+  // }
+
+  // console.log(row1Column1.innerHTML);
 }
