@@ -219,6 +219,10 @@ function r3c3() {
  */
 
 function lookForAWinner() {
+  const displayNameWinner = document.getElementById("winner-name");
+  const namePlayer1 = document.createTextNode(` ${player1.value}`);
+  const namePlayer2 = document.createTextNode(` ${player2.value}`);
+  console.log(displayNameWinner);
   const [
     space1,
     space2,
@@ -241,8 +245,6 @@ function lookForAWinner() {
     row3Column3.innerHTML.toString(),
   ];
 
-  // console.log(space1);
-  // if (space1 !== "" && space5 !== "" && space9 !== "") {
   if (
     space1 === space5 &&
     space5 === space9 &&
@@ -250,6 +252,11 @@ function lookForAWinner() {
     space5 !== "" &&
     space9 !== ""
   ) {
+    if (space1 === "X") {
+      displayNameWinner.appendChild(namePlayer1);
+    } else {
+      displayNameWinner.appendChild(namePlayer2);
+    }
     console.log("Venceu na diagonal \\");
   } else if (
     space3 === space5 &&
@@ -258,6 +265,11 @@ function lookForAWinner() {
     space5 !== "" &&
     space7 !== ""
   ) {
+    if (space1 === "X") {
+      displayNameWinner.appendChild(namePlayer1);
+    } else {
+      displayNameWinner.appendChild(namePlayer2);
+    }
     console.log("Venceu na outra diagonal /");
   } else if (
     space1 === space2 &&
@@ -266,6 +278,11 @@ function lookForAWinner() {
     space2 !== "" &&
     space3 !== ""
   ) {
+    if (space1 === "X") {
+      displayNameWinner.appendChild(namePlayer1);
+    } else {
+      displayNameWinner.appendChild(namePlayer2);
+    }
     console.log("Venceu linha1");
   } else if (
     space4 === space5 &&
@@ -274,6 +291,11 @@ function lookForAWinner() {
     space5 !== "" &&
     space6 !== ""
   ) {
+    if (space1 === "X") {
+      displayNameWinner.appendChild(namePlayer1);
+    } else {
+      displayNameWinner.appendChild(namePlayer2);
+    }
     console.log("Venceu linha2");
   } else if (
     space7 === space8 &&
@@ -282,6 +304,11 @@ function lookForAWinner() {
     space8 !== "" &&
     space9 !== ""
   ) {
+    if (space1 === "X") {
+      displayNameWinner.appendChild(namePlayer1);
+    } else {
+      displayNameWinner.appendChild(namePlayer2);
+    }
     console.log("Venceu linha3");
   } else if (
     space1 === space4 &&
@@ -290,6 +317,11 @@ function lookForAWinner() {
     space4 !== "" &&
     space7 !== ""
   ) {
+    if (space1 === "X") {
+      displayNameWinner.appendChild(namePlayer1);
+    } else {
+      displayNameWinner.appendChild(namePlayer2);
+    }
     console.log("Venceu coluna1");
   } else if (
     space2 === space5 &&
@@ -298,6 +330,11 @@ function lookForAWinner() {
     space5 !== "" &&
     space8 !== ""
   ) {
+    if (space1 === "X") {
+      displayNameWinner.appendChild(namePlayer1);
+    } else {
+      displayNameWinner.appendChild(namePlayer2);
+    }
     console.log("Venceu coluna2");
   } else if (
     space3 === space6 &&
