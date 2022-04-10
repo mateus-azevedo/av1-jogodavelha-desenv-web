@@ -41,21 +41,31 @@ function start() {
  *  IREI PEGAR TODOS ELEMENTOS POR ID
  */
 
-document.getElementById("row1-column1").addEventListener("click", r1c1, true);
-document.getElementById("row1-column2").addEventListener("click", r1c2, true);
-document.getElementById("row1-column3").addEventListener("click", r1c3, true);
-document.getElementById("row2-column1").addEventListener("click", r2c1, true);
-document.getElementById("row2-column2").addEventListener("click", r2c2, true);
-document.getElementById("row2-column3").addEventListener("click", r2c3, true);
-document.getElementById("row3-column1").addEventListener("click", r3c1, true);
-document.getElementById("row3-column2").addEventListener("click", r3c2, true);
-document.getElementById("row3-column3").addEventListener("click", r3c3, true);
+const row1Column1 = document.getElementById("row1-column1");
+const row1Column2 = document.getElementById("row1-column2");
+const row1Column3 = document.getElementById("row1-column3");
+const row2Column1 = document.getElementById("row2-column1");
+const row2Column2 = document.getElementById("row2-column2");
+const row2Column3 = document.getElementById("row2-column3");
+const row3Column1 = document.getElementById("row3-column1");
+const row3Column2 = document.getElementById("row3-column2");
+const row3Column3 = document.getElementById("row3-column3");
+
+row1Column1.addEventListener("click", r1c1, true);
+row1Column2.addEventListener("click", r1c2, true);
+row1Column3.addEventListener("click", r1c3, true);
+row2Column1.addEventListener("click", r2c1, true);
+row2Column2.addEventListener("click", r2c2, true);
+row2Column3.addEventListener("click", r2c3, true);
+row3Column1.addEventListener("click", r3c1, true);
+row3Column2.addEventListener("click", r3c2, true);
+row3Column3.addEventListener("click", r3c3, true);
 
 let isPlayer1Turn;
 
 function swapTurn() {
   isPlayer1Turn = !isPlayer1Turn;
-  console.log(isPlayer1Turn);
+  // console.log(isPlayer1Turn);
   return isPlayer1Turn;
 }
 
