@@ -48,6 +48,8 @@ body {
   flex-direction: column;
   width: 50vw;
   height: 50vh;
+
+  margin-bottom: 50xp;
 }
 
 .game-board-row {
@@ -80,8 +82,18 @@ body {
   background-color: #3f3f3f;
 }
 
+#winner-box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.winner-message {
+  margin: 0;
+}
+
 #container-action {
-  margin-top: 100px;
+  margin-top: 50px;
   padding: 10px;
   display: flex;
   flex-direction: column;
