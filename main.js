@@ -86,6 +86,7 @@ function resetGame() {
 
   hideAllGameMove();
   hideWinnerName();
+  removeHistoryWinnerList();
   enableInputName(player1, player2);
 
   startButton.textContent = BUTTON_MESSAGES.START;
@@ -423,14 +424,23 @@ function lookForAWinner() {
 }
 
 /**
- * ADICIONA HISTORICO DE VENCEDOR DAS PARTIDAS
+ * ADICIONA E REMOVE HISTORICO DE VENCEDOR DAS PARTIDAS
  *
  */
 function createHistoryWinnerList(player) {
   const listHistoryMatch = document.getElementById("history-match");
   const item = document.createElement("li");
 
+  item.className = "winner-of-match";
   item.innerHTML = player;
 
   listHistoryMatch.appendChild(item);
+}
+
+function removeHistoryWinnerList() {
+  const listOfItems = document.querySelectorAll(".winner-of-match");
+
+  for (const item of listOfItems) {
+    item.remove();
+  }
 }
