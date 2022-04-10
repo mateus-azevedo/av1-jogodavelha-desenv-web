@@ -34,16 +34,10 @@ function hideAllGameMove() {
 function start() {
   disableInputName(player1, player2);
   hideAllGameMove();
-  // EXEMPLO DE MANIPULACAO E RECUPERACAO DE DADOS DA DOM
-  // let conteudo = document.getElementById("start-button");
-  // console.log(conteudo.innerHTML)
-  // conteudo.innerHTML = "Valendo!!!"
 }
 
-const board = document.querySelectorAll(["board-game"]);
-let isPlayer1Turn;
-
 /**
+ *  IMPLEMENTAÇÃO PARA MARCAR NO TABULEIRO O JOGADOR ATUAL
  *  IREI PEGAR TODOS ELEMENTOS POR ID
  */
 
@@ -57,10 +51,8 @@ document.getElementById("row3-column1").addEventListener("click", r3c1, true);
 document.getElementById("row3-column2").addEventListener("click", r3c2, true);
 document.getElementById("row3-column3").addEventListener("click", r3c3, true);
 
-/**
- *
- *
- */
+let isPlayer1Turn;
+
 function swapTurn() {
   isPlayer1Turn = !isPlayer1Turn;
   console.log(isPlayer1Turn);
@@ -73,8 +65,10 @@ function r1c1() {
   if (item.innerHTML === "") {
     if (swapTurn()) {
       item.innerHTML = "X";
+      item.style.color = "red";
     } else {
       item.innerHTML = "O";
+      item.style.color = "blue";
     }
   }
 }
@@ -85,8 +79,10 @@ function r1c2() {
   if (item.innerHTML === "") {
     if (swapTurn()) {
       item.innerHTML = "X";
+      item.style.color = "red";
     } else {
       item.innerHTML = "O";
+      item.style.color = "blue";
     }
   }
 }
@@ -97,8 +93,10 @@ function r1c3() {
   if (item.innerHTML === "") {
     if (swapTurn()) {
       item.innerHTML = "X";
+      item.style.color = "red";
     } else {
       item.innerHTML = "O";
+      item.style.color = "blue";
     }
   }
 }
@@ -109,8 +107,10 @@ function r2c1() {
   if (item.innerHTML === "") {
     if (swapTurn()) {
       item.innerHTML = "X";
+      item.style.color = "red";
     } else {
       item.innerHTML = "O";
+      item.style.color = "blue";
     }
   }
 }
@@ -121,8 +121,10 @@ function r2c2() {
   if (item.innerHTML === "") {
     if (swapTurn()) {
       item.innerHTML = "X";
+      item.style.color = "red";
     } else {
       item.innerHTML = "O";
+      item.style.color = "blue";
     }
   }
 }
@@ -133,8 +135,10 @@ function r2c3() {
   if (item.innerHTML === "") {
     if (swapTurn()) {
       item.innerHTML = "X";
+      item.style.color = "red";
     } else {
       item.innerHTML = "O";
+      item.style.color = "blue";
     }
   }
 }
@@ -145,8 +149,10 @@ function r3c1() {
   if (item.innerHTML === "") {
     if (swapTurn()) {
       item.innerHTML = "X";
+      item.style.color = "red";
     } else {
       item.innerHTML = "O";
+      item.style.color = "blue";
     }
   }
 }
@@ -157,8 +163,10 @@ function r3c2() {
   if (item.innerHTML === "") {
     if (swapTurn()) {
       item.innerHTML = "X";
+      item.style.color = "red";
     } else {
       item.innerHTML = "O";
+      item.style.color = "blue";
     }
   }
 }
@@ -169,8 +177,10 @@ function r3c3() {
   if (item.innerHTML === "") {
     if (swapTurn()) {
       item.innerHTML = "X";
+      item.style.color = "red";
     } else {
       item.innerHTML = "O";
+      item.style.color = "blue";
     }
   }
 }
