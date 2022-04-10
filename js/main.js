@@ -303,6 +303,17 @@ function hideWinnerName() {
   displayMessage.textContent = "";
 }
 
+function drawMatch() {
+  const displayNameWinner = document.getElementById("winner-name");
+
+  displayNameWinner.textContent = "A Partida Empatou não houve um vencedor";
+
+  createHistoryWinnerList("Empate");
+
+  startButton.style.visibility = "visible";
+  startButton.textContent = BUTTON_MESSAGES.NEXT_MATCH;
+}
+
 function showWinnerName(playerMark) {
   const displayNameWinner = document.getElementById("winner-name");
   const displayMessage = document.querySelector(".winner-message");
@@ -435,6 +446,18 @@ function lookForAWinner() {
   ) {
     showWinnerName(space3);
     console.log("Venceu coluna3");
+  } else if (
+    space1 !== "" &&
+    space2 !== "" &&
+    space3 !== "" &&
+    space4 !== "" &&
+    space5 !== "" &&
+    space6 !== "" &&
+    space7 !== "" &&
+    space8 !== "" &&
+    space9 !== ""
+  ) {
+    drawMatch();
   }
 }
 
