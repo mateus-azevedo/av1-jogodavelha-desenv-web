@@ -1,5 +1,9 @@
 # AV1 - Jogo da Velha - Melhor de Três
 
+#### ALUNO: MATEUS SANTOS DE AZEVEDO
+
+#### MATRICULA: 2020100086
+
 Conforme desenvolvido e explicado no vídeo da AV1, esta consiste em desenvolver no projeto do jogo da velha zipado as seguintes funcionalidades:
 
 <b>PONTOS A SEREM ABORDADOS NA AV1:<b>
