@@ -35,6 +35,14 @@ body {
   color: #ccc;
 }
 
+#container-history {
+  margin-top: 20px;
+}
+
+#container-history > h3 {
+  font-size: 20px;
+}
+
 #right-panel {
   display: flex;
   flex: 4;

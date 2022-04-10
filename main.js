@@ -298,9 +298,11 @@ function showWinnerName(playerMark) {
   if (isNotHaveAWinner) {
     if (playerMark === "X") {
       displayNameWinner.textContent = namePlayer1.toString();
+      createHistoryWinnerList(player1.value);
       timesPlayer1Win++;
     } else {
       displayNameWinner.textContent = namePlayer2.toString();
+      createHistoryWinnerList(player2.value);
       timesPlayer2Win++;
     }
 
@@ -418,4 +420,17 @@ function lookForAWinner() {
     showWinnerName(space3);
     console.log("Venceu coluna3");
   }
+}
+
+/**
+ * ADICIONA HISTORICO DE VENCEDOR DAS PARTIDAS
+ *
+ */
+function createHistoryWinnerList(player) {
+  const listHistoryMatch = document.getElementById("history-match");
+  const item = document.createElement("li");
+
+  item.innerHTML = player;
+
+  listHistoryMatch.appendChild(item);
 }
