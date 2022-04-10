@@ -12,6 +12,9 @@ PONTOS DA AV1:
     DEVERÁ SER ATUALIZADO O HISTÓRICO DAS PARTIDAS 
 */
 const LIMIT_OF_TURN = 10;
+const BEST_PLAYER_IN_THREE_MATCHES = 3;
+let timesPlayer1Win = 0;
+let timesPlayer2Win = 0;
 let isNotHaveAWinner = true;
 let counterTurn = 0;
 
@@ -227,14 +230,25 @@ function r3c3() {
 
 function showWinnerName(playerMark) {
   const displayNameWinner = document.getElementById("winner-name");
+  const displayMessage = document.querySelector(".winner-message");
   const namePlayer1 = `Parabéns, ${player1.value}`;
   const namePlayer2 = `Parabéns, ${player2.value}`;
 
   if (isNotHaveAWinner) {
     if (playerMark === "X") {
       displayNameWinner.textContent = namePlayer1.toString();
+      timesPlayer1Win++;
     } else {
       displayNameWinner.textContent = namePlayer2.toString();
+      timesPlayer2Win++;
+    }
+
+    displayMessage.textContent = "você ganhou a partida";
+
+    if (timesPlayer1Win === BEST_PLAYER_IN_THREE_MATCHES) {
+      displayMessage.textContent = "você foi o melhor em três partidas";
+    } else if (timesPlayer2Win === BEST_PLAYER_IN_THREE_MATCHES) {
+      displayMessage.textContent = "você foi o melhor em três partidas";
     }
   }
 
