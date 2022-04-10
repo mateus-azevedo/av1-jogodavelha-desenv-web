@@ -21,10 +21,166 @@ function disableInputName(input1, input2) {
   input2.disabled = true;
 }
 
+function hideAllGameMove() {
+  const gameBoardMove = document.getElementsByClassName("game-board-move");
+  const startButton = document.getElementById("start-button");
+  // startButton.style.display = "none";
+
+  for (let item of gameBoardMove) {
+    item.innerText = "";
+  }
+}
+
 function start() {
   disableInputName(player1, player2);
-  // EXEMPLO DE MANIPULACAO E RECUPERACAO DE DADOS DA DOM
-  // let conteudo = document.getElementById("start-button");
-  // console.log(conteudo.innerHTML)
-  // conteudo.innerHTML = "Valendo!!!"
+  hideAllGameMove();
+}
+
+/**
+ *  IMPLEMENTAÇÃO PARA MARCAR NO TABULEIRO O JOGADOR ATUAL
+ *  IREI PEGAR TODOS ELEMENTOS POR ID
+ */
+
+document.getElementById("row1-column1").addEventListener("click", r1c1, true);
+document.getElementById("row1-column2").addEventListener("click", r1c2, true);
+document.getElementById("row1-column3").addEventListener("click", r1c3, true);
+document.getElementById("row2-column1").addEventListener("click", r2c1, true);
+document.getElementById("row2-column2").addEventListener("click", r2c2, true);
+document.getElementById("row2-column3").addEventListener("click", r2c3, true);
+document.getElementById("row3-column1").addEventListener("click", r3c1, true);
+document.getElementById("row3-column2").addEventListener("click", r3c2, true);
+document.getElementById("row3-column3").addEventListener("click", r3c3, true);
+
+let isPlayer1Turn;
+
+function swapTurn() {
+  isPlayer1Turn = !isPlayer1Turn;
+  console.log(isPlayer1Turn);
+  return isPlayer1Turn;
+}
+
+function r1c1() {
+  const item = document.getElementById("row1-column1");
+
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+      item.style.color = "red";
+    } else {
+      item.innerHTML = "O";
+      item.style.color = "blue";
+    }
+  }
+}
+
+function r1c2() {
+  const item = document.getElementById("row1-column2");
+
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+      item.style.color = "red";
+    } else {
+      item.innerHTML = "O";
+      item.style.color = "blue";
+    }
+  }
+}
+
+function r1c3() {
+  const item = document.getElementById("row1-column3");
+
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+      item.style.color = "red";
+    } else {
+      item.innerHTML = "O";
+      item.style.color = "blue";
+    }
+  }
+}
+
+function r2c1() {
+  const item = document.getElementById("row2-column1");
+
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+      item.style.color = "red";
+    } else {
+      item.innerHTML = "O";
+      item.style.color = "blue";
+    }
+  }
+}
+
+function r2c2() {
+  const item = document.getElementById("row2-column2");
+
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+      item.style.color = "red";
+    } else {
+      item.innerHTML = "O";
+      item.style.color = "blue";
+    }
+  }
+}
+
+function r2c3() {
+  const item = document.getElementById("row2-column3");
+
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+      item.style.color = "red";
+    } else {
+      item.innerHTML = "O";
+      item.style.color = "blue";
+    }
+  }
+}
+
+function r3c1() {
+  const item = document.getElementById("row3-column1");
+
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+      item.style.color = "red";
+    } else {
+      item.innerHTML = "O";
+      item.style.color = "blue";
+    }
+  }
+}
+
+function r3c2() {
+  const item = document.getElementById("row3-column2");
+
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+      item.style.color = "red";
+    } else {
+      item.innerHTML = "O";
+      item.style.color = "blue";
+    }
+  }
+}
+
+function r3c3() {
+  const item = document.getElementById("row3-column3");
+
+  if (item.innerHTML === "") {
+    if (swapTurn()) {
+      item.innerHTML = "X";
+      item.style.color = "red";
+    } else {
+      item.innerHTML = "O";
+      item.style.color = "blue";
+    }
+  }
 }
