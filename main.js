@@ -11,6 +11,10 @@ PONTOS DA AV1:
     AO FINAL DO MELHOR DE TRES O VENCEDOR DEVERÁ TER O NOME APRESENTADO NO LUGAR DO JOGO DA VELHA
     DEVERÁ SER ATUALIZADO O HISTÓRICO DAS PARTIDAS 
 */
+const LIMIT_OF_TURN = 10;
+let isNotHaveAWinner = true;
+let counterTurn = 0;
+
 const [player1, player2] = [
   document.getElementById("player1"),
   document.getElementById("player2"),
@@ -32,6 +36,8 @@ function hideAllGameMove() {
 }
 
 function start() {
+  isNotHaveAWinner = true;
+  counterTurn = 0;
   disableInputName(player1, player2);
   hideAllGameMove();
 }
@@ -65,14 +71,15 @@ let isPlayer1Turn;
 
 function swapTurn() {
   isPlayer1Turn = !isPlayer1Turn;
-  // console.log(isPlayer1Turn);
+  counterTurn++;
+
   return isPlayer1Turn;
 }
 
 function r1c1() {
   const item = document.getElementById("row1-column1");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -88,7 +95,7 @@ function r1c1() {
 function r1c2() {
   const item = document.getElementById("row1-column2");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -104,7 +111,7 @@ function r1c2() {
 function r1c3() {
   const item = document.getElementById("row1-column3");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -120,7 +127,7 @@ function r1c3() {
 function r2c1() {
   const item = document.getElementById("row2-column1");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -136,7 +143,7 @@ function r2c1() {
 function r2c2() {
   const item = document.getElementById("row2-column2");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -152,7 +159,7 @@ function r2c2() {
 function r2c3() {
   const item = document.getElementById("row2-column3");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -168,7 +175,7 @@ function r2c3() {
 function r3c1() {
   const item = document.getElementById("row3-column1");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -184,7 +191,7 @@ function r3c1() {
 function r3c2() {
   const item = document.getElementById("row3-column2");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -200,7 +207,7 @@ function r3c2() {
 function r3c3() {
   const item = document.getElementById("row3-column3");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -223,11 +230,15 @@ function showWinnerName(playerMark) {
   const namePlayer1 = document.createTextNode(`Parabéns, ${player1.value}`);
   const namePlayer2 = document.createTextNode(`Parabéns, ${player2.value}`);
 
-  if (playerMark === "X") {
-    displayNameWinner.appendChild(namePlayer1);
-  } else {
-    displayNameWinner.appendChild(namePlayer2);
+  if (isNotHaveAWinner) {
+    if (playerMark === "X") {
+      displayNameWinner.appendChild(namePlayer1);
+    } else {
+      displayNameWinner.appendChild(namePlayer2);
+    }
   }
+
+  isNotHaveAWinner = false;
 }
 
 function lookForAWinner() {
@@ -326,7 +337,4 @@ function lookForAWinner() {
     showWinnerName(space3);
     console.log("Venceu coluna3");
   }
-  // }
-
-  // console.log(row1Column1.innerHTML);
 }
