@@ -41,12 +41,17 @@
           </div>
         </div>
 
+        <div id="winner-box">
+          <h2 id="winner-name" class="no-margin"></h2>
+          <h2 class="winner-message no-margin"></h2>
+        </div>
+
         <div
           id="container-action"
           onmouseover="onMouseOverButton()"
           onmouseleave="onMouseLeaveButton()"
         >
-          <button id="start-button" onclick="start()">Começar o Jogo!</button>
+          <button id="start-button" onclick="stageOfButton()"></button>
           <span id="tooltiptext"
             >Por favor, antes de tentar iniciar o jogo, insira os nomes dos
             jogadores.</span

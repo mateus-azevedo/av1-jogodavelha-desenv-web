@@ -4,6 +4,7 @@ var nomePlayer2 = "";
 
 function checkLabel() {
   const startButton = document.getElementById("start-button");
+  startButton.textContent = BUTTON_MESSAGES.START;
   const [player1, player2] = [
     document.getElementById("player1"),
     document.getElementById("player2"),
@@ -13,8 +14,12 @@ function checkLabel() {
     startButton.disabled = false;
     nomePlayer1 = player1.value;
     nomePlayer2 = player2.value;
+
+    return true;
   } else {
     startButton.disabled = true;
+
+    return false;
   }
 }
 

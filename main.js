@@ -11,10 +11,36 @@ PONTOS DA AV1:
     AO FINAL DO MELHOR DE TRES O VENCEDOR DEVERÁ TER O NOME APRESENTADO NO LUGAR DO JOGO DA VELHA
     DEVERÁ SER ATUALIZADO O HISTÓRICO DAS PARTIDAS 
 */
+const BUTTON_MESSAGES = {
+  START: "Começar o Jogo!",
+  NEXT_MATCH: "Próxima Partida",
+  RESET_GAME: "Iniciar um novo jogo",
+};
+const LIMIT_OF_TURN = 10;
+const BEST_PLAYER_IN_THREE_MATCHES = 3;
+let timesPlayer1Win = 0;
+let timesPlayer2Win = 0;
+let isNotHaveAWinner = true;
+let counterTurn = 0;
+
+const startButton = document.getElementById("start-button");
+
 const [player1, player2] = [
   document.getElementById("player1"),
   document.getElementById("player2"),
 ];
+
+function enableInputName(input1, input2) {
+  input1.disabled = false;
+  input2.disabled = false;
+
+  clearInputNameValues(input1, input2);
+}
+
+function clearInputNameValues(input1, input2) {
+  input1.value = "";
+  input2.value = "";
+}
 
 function disableInputName(input1, input2) {
   input1.disabled = true;
@@ -31,9 +57,45 @@ function hideAllGameMove() {
   }
 }
 
+function stageOfButton() {
+  console.log(startButton.textContent);
+  if (startButton.textContent == BUTTON_MESSAGES.START && checkLabel()) {
+    start();
+  } else if (startButton.textContent === BUTTON_MESSAGES.NEXT_MATCH) {
+    resetValues();
+  } else if (startButton.textContent === BUTTON_MESSAGES.RESET_GAME) {
+    resetGame();
+  }
+}
+
+function resetValues() {
+  isNotHaveAWinner = true;
+  counterTurn = 0;
+
+  hideAllGameMove();
+  hideWinnerName();
+
+  startButton.style.visibility = "hidden";
+}
+
+function resetGame() {
+  timesPlayer1Win = 0;
+  timesPlayer2Win = 0;
+  counterTurn = 0;
+  isNotHaveAWinner = true;
+
+  hideAllGameMove();
+  hideWinnerName();
+  enableInputName(player1, player2);
+
+  startButton.textContent = BUTTON_MESSAGES.START;
+}
+
 function start() {
   disableInputName(player1, player2);
   hideAllGameMove();
+
+  startButton.style.visibility = "hidden";
 }
 
 /**
@@ -41,28 +103,39 @@ function start() {
  *  IREI PEGAR TODOS ELEMENTOS POR ID
  */
 
-document.getElementById("row1-column1").addEventListener("click", r1c1, true);
-document.getElementById("row1-column2").addEventListener("click", r1c2, true);
-document.getElementById("row1-column3").addEventListener("click", r1c3, true);
-document.getElementById("row2-column1").addEventListener("click", r2c1, true);
-document.getElementById("row2-column2").addEventListener("click", r2c2, true);
-document.getElementById("row2-column3").addEventListener("click", r2c3, true);
-document.getElementById("row3-column1").addEventListener("click", r3c1, true);
-document.getElementById("row3-column2").addEventListener("click", r3c2, true);
-document.getElementById("row3-column3").addEventListener("click", r3c3, true);
+const row1Column1 = document.getElementById("row1-column1");
+const row1Column2 = document.getElementById("row1-column2");
+const row1Column3 = document.getElementById("row1-column3");
+const row2Column1 = document.getElementById("row2-column1");
+const row2Column2 = document.getElementById("row2-column2");
+const row2Column3 = document.getElementById("row2-column3");
+const row3Column1 = document.getElementById("row3-column1");
+const row3Column2 = document.getElementById("row3-column2");
+const row3Column3 = document.getElementById("row3-column3");
+
+row1Column1.addEventListener("click", r1c1, true);
+row1Column2.addEventListener("click", r1c2, true);
+row1Column3.addEventListener("click", r1c3, true);
+row2Column1.addEventListener("click", r2c1, true);
+row2Column2.addEventListener("click", r2c2, true);
+row2Column3.addEventListener("click", r2c3, true);
+row3Column1.addEventListener("click", r3c1, true);
+row3Column2.addEventListener("click", r3c2, true);
+row3Column3.addEventListener("click", r3c3, true);
 
 let isPlayer1Turn;
 
 function swapTurn() {
   isPlayer1Turn = !isPlayer1Turn;
-  console.log(isPlayer1Turn);
+  counterTurn++;
+
   return isPlayer1Turn;
 }
 
 function r1c1() {
   const item = document.getElementById("row1-column1");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -71,12 +144,14 @@ function r1c1() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
 }
 
 function r1c2() {
   const item = document.getElementById("row1-column2");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -85,12 +160,14 @@ function r1c2() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
 }
 
 function r1c3() {
   const item = document.getElementById("row1-column3");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -99,12 +176,14 @@ function r1c3() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
 }
 
 function r2c1() {
   const item = document.getElementById("row2-column1");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -113,12 +192,14 @@ function r2c1() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
 }
 
 function r2c2() {
   const item = document.getElementById("row2-column2");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -127,12 +208,14 @@ function r2c2() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
 }
 
 function r2c3() {
   const item = document.getElementById("row2-column3");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -141,12 +224,14 @@ function r2c3() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
 }
 
 function r3c1() {
   const item = document.getElementById("row3-column1");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -155,12 +240,14 @@ function r3c1() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
 }
 
 function r3c2() {
   const item = document.getElementById("row3-column2");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -169,12 +256,14 @@ function r3c2() {
       item.style.color = "blue";
     }
   }
+
+  lookForAWinner();
 }
 
 function r3c3() {
   const item = document.getElementById("row3-column3");
 
-  if (item.innerHTML === "") {
+  if (item.innerHTML === "" && isNotHaveAWinner) {
     if (swapTurn()) {
       item.innerHTML = "X";
       item.style.color = "red";
@@ -182,5 +271,151 @@ function r3c3() {
       item.innerHTML = "O";
       item.style.color = "blue";
     }
+  }
+
+  lookForAWinner();
+}
+
+/**
+ * VERIFICAÇÃO DO VENCEDOR DA PARTIDA ATUAL
+ *
+ */
+
+function hideWinnerName() {
+  const displayNameWinner = document.getElementById("winner-name");
+  const displayMessage = document.querySelector(".winner-message");
+
+  displayNameWinner.textContent = "";
+  displayMessage.textContent = "";
+}
+
+function showWinnerName(playerMark) {
+  const displayNameWinner = document.getElementById("winner-name");
+  const displayMessage = document.querySelector(".winner-message");
+  const namePlayer1 = `Parabéns, ${player1.value}`;
+  const namePlayer2 = `Parabéns, ${player2.value}`;
+
+  if (isNotHaveAWinner) {
+    if (playerMark === "X") {
+      displayNameWinner.textContent = namePlayer1.toString();
+      timesPlayer1Win++;
+    } else {
+      displayNameWinner.textContent = namePlayer2.toString();
+      timesPlayer2Win++;
+    }
+
+    displayMessage.textContent = "você ganhou a partida";
+    startButton.style.visibility = "visible";
+    startButton.textContent = BUTTON_MESSAGES.NEXT_MATCH;
+
+    if (timesPlayer1Win === BEST_PLAYER_IN_THREE_MATCHES) {
+      displayMessage.textContent = "você foi o melhor em três partidas";
+      startButton.style.visibility = "visible";
+      startButton.textContent = BUTTON_MESSAGES.RESET_GAME;
+    } else if (timesPlayer2Win === BEST_PLAYER_IN_THREE_MATCHES) {
+      displayMessage.textContent = "você foi o melhor em três partidas";
+      startButton.style.visibility = "visible";
+      startButton.textContent = BUTTON_MESSAGES.RESET_GAME;
+    }
+  }
+
+  isNotHaveAWinner = false;
+}
+
+function lookForAWinner() {
+  const [
+    space1,
+    space2,
+    space3,
+    space4,
+    space5,
+    space6,
+    space7,
+    space8,
+    space9,
+  ] = [
+    row1Column1.innerHTML.toString(),
+    row1Column2.innerHTML.toString(),
+    row1Column3.innerHTML.toString(),
+    row2Column1.innerHTML.toString(),
+    row2Column2.innerHTML.toString(),
+    row2Column3.innerHTML.toString(),
+    row3Column1.innerHTML.toString(),
+    row3Column2.innerHTML.toString(),
+    row3Column3.innerHTML.toString(),
+  ];
+
+  if (
+    space1 === space5 &&
+    space5 === space9 &&
+    space1 !== "" &&
+    space5 !== "" &&
+    space9 !== ""
+  ) {
+    showWinnerName(space1);
+    console.log("Venceu na diagonal \\");
+  } else if (
+    space3 === space5 &&
+    space5 === space7 &&
+    space3 !== "" &&
+    space5 !== "" &&
+    space7 !== ""
+  ) {
+    showWinnerName(space3);
+    console.log("Venceu na outra diagonal /");
+  } else if (
+    space1 === space2 &&
+    space2 === space3 &&
+    space1 !== "" &&
+    space2 !== "" &&
+    space3 !== ""
+  ) {
+    showWinnerName(space1);
+    console.log("Venceu linha1");
+  } else if (
+    space4 === space5 &&
+    space5 === space6 &&
+    space4 !== "" &&
+    space5 !== "" &&
+    space6 !== ""
+  ) {
+    showWinnerName(space4);
+    console.log("Venceu linha2");
+  } else if (
+    space7 === space8 &&
+    space8 === space9 &&
+    space7 !== "" &&
+    space8 !== "" &&
+    space9 !== ""
+  ) {
+    showWinnerName(space7);
+    console.log("Venceu linha3");
+  } else if (
+    space1 === space4 &&
+    space4 === space7 &&
+    space1 !== "" &&
+    space4 !== "" &&
+    space7 !== ""
+  ) {
+    showWinnerName(space1);
+    console.log("Venceu coluna1");
+  } else if (
+    space2 === space5 &&
+    space5 === space8 &&
+    space2 !== "" &&
+    space5 !== "" &&
+    space8 !== ""
+  ) {
+    showWinnerName(space2);
+    console.log("Venceu coluna2");
+  } else if (
+    space3 === space6 &&
+    space6 === space9 &&
+    space3 !== "" &&
+    space6 !== "" &&
+    space9 !== ""
+  ) {
+    showWinnerName(space3);
+    console.log("Venceu coluna3");
   }
 }
