@@ -57,6 +57,18 @@ function hideAllGameMove() {
   }
 }
 
+function showDashboard() {
+  const dashboard = document.getElementById("game-board");
+
+  dashboard.style.display = "flex";
+}
+
+function hideDashboard() {
+  const dashboard = document.getElementById("game-board");
+
+  dashboard.style.display = "none";
+}
+
 function stageOfButton() {
   console.log(startButton.textContent);
   if (startButton.textContent == BUTTON_MESSAGES.START && checkLabel()) {
@@ -87,6 +99,7 @@ function resetGame() {
   hideAllGameMove();
   hideWinnerName();
   removeHistoryWinnerList();
+  showDashboard();
   enableInputName(player1, player2);
 
   startButton.textContent = BUTTON_MESSAGES.START;
@@ -312,10 +325,12 @@ function showWinnerName(playerMark) {
     startButton.textContent = BUTTON_MESSAGES.NEXT_MATCH;
 
     if (timesPlayer1Win === BEST_PLAYER_IN_THREE_MATCHES) {
+      hideDashboard();
       displayMessage.textContent = "você foi o melhor em três partidas";
       startButton.style.visibility = "visible";
       startButton.textContent = BUTTON_MESSAGES.RESET_GAME;
     } else if (timesPlayer2Win === BEST_PLAYER_IN_THREE_MATCHES) {
+      hideDashboard();
       displayMessage.textContent = "você foi o melhor em três partidas";
       startButton.style.visibility = "visible";
       startButton.textContent = BUTTON_MESSAGES.RESET_GAME;
